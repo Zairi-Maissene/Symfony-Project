@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+{% block title %}Entreprise Details
+{% endblock %}
+{% block body %}
+	<div class="row">
+		{% for row in res %}
+			<div class="col-4">
+				{% if loop.index%2==0 %}
+					<div class='card text-white bg-dark mb-3' style="max-width:18rem">
+					{% else %}
+						<div class='card text-dark bg-light mb-3' style="max-width:18rem">
+						{% endif %}
+
+						<div class='card-header'>
+							{{row.designation}}</div>
+						<div class='card-body'>{{row.PFEs|length}}
+							PFE(s)</div>
+
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	{% endblock %}
