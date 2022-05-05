@@ -19,6 +19,7 @@ class AppFixtures extends Fixture
             $pfe->setTitle($faker->word);
             $entreprise = new Entreprise();
             $entreprise->setDesignation($faker->word);
+            $pfe->setEntreprise($entreprise);
             $manager->persist($pfe);
             $manager->persist($entreprise);
         }

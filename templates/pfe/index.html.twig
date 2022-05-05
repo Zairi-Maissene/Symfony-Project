@@ -20,21 +20,25 @@
 	<div class="row">
 		{% for row in res %}
 			<div class="col-4">
-				<div class='card text-white bg-dark mb-3' style="max-width:18rem">
-					<div class='card-header'>
-						{{row.title}}</div>
-					<div class='card-body'>{{row.student}}</div>
-					{% if row.entreprise %}
+				{% if loop.index%2==0 %}
+					<div class='card text-white bg-dark mb-3' style="max-width:18rem">
+					{% else %}
+						<div class='card text-dark bg-light mb-3' style="max-width:18rem">
+						{% endif %}
+						<div class='card-header'>
+							{{row.title}}</div>
+						<div class='card-body'>{{row.student}}</div>
+
 						<div class="card-text">Entreprise :
 							{{row.entreprise}}
 						</div>
-					{% endif %}
+
+					</div>
 				</div>
+			{% endfor %}
+			<div class="d-flex justify-content-center mt-5">
+				<a class="btn btn-dark" href="{{path('addPFE')}}" }>Add PFE</a>
 			</div>
-		{% endfor %}
-		<div class="d-flex justify-content-center mt-5">
-			<a class="btn btn-dark" href="{{path('addPFE')}}" }>Add PFE</a>
 		</div>
-	</div>
-	>
-{% endblock %}
+		>
+	{% endblock %}
